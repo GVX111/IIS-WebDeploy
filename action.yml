@@ -1,4 +1,4 @@
-name: "SmarterASP.NET Web Deploy"
+name: "CloudPower Web Deploy"
 description: "Deploy projects directly to SmarterASP.NET IIS"
 inputs:
   website-name:
