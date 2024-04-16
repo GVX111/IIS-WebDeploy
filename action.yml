@@ -35,7 +35,7 @@ runs:
         ${{ inputs.source-path }}
         ${{ inputs.target-path }}
         'Default Web Site'
-        'https://70.36.25.50:32141/msdeploy.axd?site=Default Web Site'
+        'https://70.36.25.50:32141/msdeploy.axd'
         ${{ inputs.server-username }}
         ${{ inputs.server-password }}
         ${{ inputs.target-delete }}
