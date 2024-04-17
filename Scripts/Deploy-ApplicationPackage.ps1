@@ -23,7 +23,7 @@ $targetPath = $recycleApp + $destination
     "-disableLink:AppPoolExtension",
     "-disableLink:ContentExtension",
     "-disableLink:CertificateExtension",
-    "-source:contentPath='${contentPath}'," +
+    "-source:contentPath='${source}'," +
     ("-dest:" + 
         "contentPath='${targetPath}'," +
         "computerName=${computerNameArgument}," + 
@@ -33,7 +33,7 @@ $targetPath = $recycleApp + $destination
         "AuthType='Basic'"
     )
 
-$contentPath
+$source
 $command = "& `$msdeploy --% $msdeployArguments"
 $sb = $ExecutionContext.InvokeCommand.NewScriptBlock($command)
 & $sb
