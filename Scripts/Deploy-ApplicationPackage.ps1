@@ -12,7 +12,7 @@ $delete = $args[6]
 $computerNameArgument = $computerName + '/MsDeploy.axd?site='+$recycleApp.Replace(" ","+");
 $directory = Split-Path -Path (Get-Location) -Parent
 $baseName = (Get-Item $directory).BaseName
-$contentPath = Join-Path $directory $source
+$contentPath = Join-Path(Join-Path $directory $baseName) $source
 $targetPath = $recycleApp + $destination
 
 [System.Collections.ArrayList]$msdeployArguments = 
@@ -23,7 +23,7 @@ $targetPath = $recycleApp + $destination
     "-disableLink:AppPoolExtension",
     "-disableLink:ContentExtension",
     "-disableLink:CertificateExtension",
-    "-source:contentPath='${source}'," +
+    "-source:contentPath='${contentPath}'," +
     ("-dest:" + 
         "contentPath='${targetPath}'," +
         "computerName=${computerNameArgument}," + 
@@ -33,7 +33,6 @@ $targetPath = $recycleApp + $destination
         "AuthType='Basic'"
     )
 
-$source
 $command = "& `$msdeploy --% $msdeployArguments"
 $sb = $ExecutionContext.InvokeCommand.NewScriptBlock($command)
 & $sb
