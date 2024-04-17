@@ -32,4 +32,6 @@ $targetPath = $recycleApp + $destination
         "IncludeAcls='False'," +
         "AuthType='Basic'"
     )
-Get-ChildItem
+$command = "& `$msdeploy --% $msdeployArguments"
+$sb = $ExecutionContext.InvokeCommand.NewScriptBlock($command)
+& $sb
