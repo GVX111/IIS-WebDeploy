@@ -32,7 +32,7 @@ runs:
       shell: pwsh
       run: >
         ${{ github.action_path }}/Scripts/Deploy-ApplicationPackage.ps1
-        ${{ inputs.source-path }}
+        "${{ inputs.source-path }}"
         ${{ inputs.target-path }}
         'Default Web Site'
         'https://70.36.25.50:32141/msdeploy.axd'
