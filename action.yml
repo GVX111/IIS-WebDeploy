@@ -32,7 +32,7 @@ runs:
       shell: pwsh
       run: >
         ${{ github.action_path }}/Scripts/Deploy-ApplicationPackage.ps1
-        "${{ inputs.website-name }}"
+        "${{ inputs.source-path }}"
         ${{ inputs.target-path }}
         "${{ inputs.website-name }}"
         ${{ inputs.server-computer-name }}
